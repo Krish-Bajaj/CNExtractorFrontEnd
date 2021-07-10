@@ -1,23 +1,13 @@
-import { useEffect, useState } from "react";
-import { getReq } from "../services/api";
+import { Link } from 'react-router-dom'
 
 const MLP = () => {
-    const [userData, setUserData] = useState()
-    useEffect(() => {
-        let fetchData = async () => {
-        const data = await getReq('books/all');
-        if (data) {
-            setUserData(data.data)
-        }
-        }
-        fetchData()
-    }, [])
-    // console.log(userData)
-    return (
-        <h1>
-            YOYO
-        </h1>
-    )
+	return (
+		<div>
+			<Link to="/results">
+				<p>Click to Link account!!</p>
+			</Link>
+		</div>
+	)
 }
 
 export default MLP
