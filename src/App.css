@@ -1,0 +1,38 @@
+/* Declaring globals */
+* {
+    background: #f3f3f3;
+    /* background: linear-gradient(90deg, #DDE1ED 0%, #162353 88.02%); */
+}
+html {
+	scroll-behavior: smooth;
+}
+body {
+	margin: 0;
+}
+p {
+    margin: 0;
+}
+a {
+    text-decoration: none;
+    cursor: pointer;
+}
+button {
+	cursor: pointer;
+	outline: none;
+    border: none;
+}
+
+.desktop {
+	display: block;
+}
+.mobile {
+	display: none;
+}
+@media (max-width: 768px) {
+	.desktop {
+		display: none;
+	}
+	.mobile {
+		display: block;
+	}
+}

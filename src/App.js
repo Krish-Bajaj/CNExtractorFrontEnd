@@ -3,6 +3,8 @@ import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
 import MLP from './pages/MLP'
 import Results from './pages/Results'
 
+import './App.css'
+
 function App() {
 	return (
 		<Router>

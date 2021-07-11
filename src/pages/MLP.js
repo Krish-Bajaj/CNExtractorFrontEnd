@@ -1,13 +1,18 @@
 import { Link } from 'react-router-dom'
+import styled from 'styled-components'
 
 const MLP = () => {
 	return (
-		<div>
+		<Container>
 			<Link to="/results">
 				<p>Click to Link account!!</p>
 			</Link>
-		</div>
+		</Container>
 	)
 }
 
 export default MLP
+
+const Container = styled.div`
+	
+`
