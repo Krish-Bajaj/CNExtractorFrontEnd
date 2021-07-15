@@ -11,3 +11,13 @@ export const getReq = async endpoint => {
 		console.log(error)
 	}
 }
+
+export const postReq = async (endpoint, password) => {
+	const url = base_url + endpoint
+	try {
+		const response = await axios.post(url, password)
+		return response
+	} catch (error) {
+		return error
+	}
+}

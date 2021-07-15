@@ -1,25 +1,44 @@
 import { useState, useEffect } from 'react'
-import { getReq } from '../services/api'
+import { postReq } from '../services/api'
 
 import Table from '../components/Table'
 import Excel from '../components/Excel'
 
 const Results = () => {
 	const [userData, setUserData] = useState()
+	const [error, setError] = useState()
+	const [pass, setPass] = useState('')
+
 	useEffect(() => {
 		let fetchData = async () => {
-			const data = await getReq('contracts/all')
-			if (data) {
-				setUserData(data.data)
+			const data = await postReq('contracts/all', { password: pass })
+			if (data.data) {
+				setUserData(data?.data)
+			} else {
+				setError(data?.response?.status)
 			}
 		}
 		fetchData()
-	}, [])
-	console.log(userData)
-	return userData ? (
+	}, [pass])
+	const handlePassword = () => {
+		setPass(document.getElementById('getPassword').value)
+	}
+
+	return userData || error ? (
 		<div>
-			<Table userData={userData} />
-			<Excel userData={userData} />
+			{userData ? (
+				<>
+					<Table userData={userData} />
+					<Excel userData={userData} />
+				</>
+			) : null}
+			{error === 505 ? (
+				<>
+					<label htmlFor="getPassword">Password</label>
+					<input type="text" id="getPassword" defaultValue={pass} />
+					<button onClick={handlePassword}>Submit</button>
+				</>
+			) : null}
 		</div>
 	) : (
 		<h1>Loading...</h1>
