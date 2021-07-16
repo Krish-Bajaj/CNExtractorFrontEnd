@@ -3,6 +3,7 @@ import { postReq } from '../services/api'
 
 import Table from '../components/Table'
 import Excel from '../components/Excel'
+import Loader from '../components/Loader/Loader'
 
 const Results = () => {
 	const [userData, setUserData] = useState()
@@ -41,7 +42,7 @@ const Results = () => {
 			) : null}
 		</div>
 	) : (
-		<h1>Loading...</h1>
+		<Loader />
 	)
 }
 
