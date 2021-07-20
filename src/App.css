@@ -1,6 +1,7 @@
 /* Declaring globals */
 * {
-    background: #f3f3f3;
+    /* background: #142745; */
+	background: white;
     /* background: linear-gradient(90deg, #DDE1ED 0%, #162353 88.02%); */
 }
 html {
@@ -20,6 +21,13 @@ button {
 	cursor: pointer;
 	outline: none;
     border: none;
+}
+
+/* User defined classes */
+.flex-alignment {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
 }
 
 .desktop {
