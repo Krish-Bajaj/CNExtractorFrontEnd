@@ -7,13 +7,11 @@ export const createUser = (email, password) => {
 		.then(userCredential => {
 			// Signed in
 			var user = userCredential.user
-			return user
+			console.log(user)
 			// ...
 		})
 		.catch(error => {
-			var errorCode = error.code
-			var errorMessage = error.message
-			console.log({ errorCode, errorMessage })
+			console.log(error)
 			// ..
 		})
 }
@@ -25,10 +23,10 @@ export const getStatus = () => {
 			// User is signed in, see docs for a list of available properties
 			// https://firebase.google.com/docs/reference/js/firebase.User
 			var uid = user.uid
-            console.log(uid)
+			console.log("State change:" + uid)
 			// ...
 		} else {
-            console.log("Signed out!")
+			console.log('State change: All empty here!')
 			// User is signed out
 			// ...
 		}
@@ -36,3 +34,30 @@ export const getStatus = () => {
 }
 
 // 3) Logout a user from the app
+export const logoutUser = () => {
+	auth.signOut()
+		.then(() => {
+			// Sign-out successful.
+			console.log('Signed out!')
+		})
+		.catch(error => {
+			console.log(error)
+			// An error happened.
+		})
+}
+
+// 4) Sign in a user
+export const signinUser = (email, password) => {
+	auth.signInWithEmailAndPassword(email, password)
+		.then(userCredential => {
+			// Signed in
+			var user = userCredential.user
+			console.log(user)
+			// ...
+		})
+		.catch(error => {
+			var errorCode = error.code
+			var errorMessage = error.message
+			console.log({ errorCode, errorMessage })
+		})
+}
