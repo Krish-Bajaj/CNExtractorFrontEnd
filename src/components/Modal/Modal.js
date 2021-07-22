@@ -1,6 +1,6 @@
 import './Modal.css'
 
-const Modal = ({ state, closeModal }) => {
+const Modal = ({ state, closeModal, type }) => {
 	return (
 		<div>
 			<div className={state ? 'blur' : ''} />
@@ -10,7 +10,7 @@ const Modal = ({ state, closeModal }) => {
 						<p className="btn-close" onClick={closeModal}></p>
 					</div>
 					<div className="content">
-                        hello
+                        {type}
                     </div>
 				</div>
 			</div>
