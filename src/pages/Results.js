@@ -1,6 +1,8 @@
 import { useState, useEffect } from 'react'
 import { postReq } from '../services/api'
 
+import { auth } from '../services/firebaseConfig'
+
 import Table from '../components/Table'
 import Excel from '../components/Excel'
 import Loader from '../components/Loader/Loader'
@@ -9,18 +11,27 @@ const Results = () => {
 	const [userData, setUserData] = useState()
 	const [error, setError] = useState()
 	const [pass, setPass] = useState('')
+	const [uid, setuid] = useState()
 
 	useEffect(() => {
 		let fetchData = async () => {
-			const data = await postReq('contracts/all', { password: pass })
+			const data = await postReq('contracts/all', { password: pass, key: uid })
 			if (data.data) {
 				setUserData(data?.data)
 			} else {
 				setError(data?.response?.status)
 			}
 		}
-		fetchData()
-	}, [pass])
+		auth.onAuthStateChanged(user => {
+			if (user) {
+				setuid(user.uid)
+			}
+		})
+		
+		if (uid !== 'undefined') {
+			fetchData()
+		}
+	}, [pass, uid])
 	const handlePassword = () => {
 		setPass(document.getElementById('getPassword').value)
 	}
