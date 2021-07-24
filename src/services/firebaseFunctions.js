@@ -1,4 +1,4 @@
-import { auth } from './firebaseConfig'
+import { auth } from './firebaseConfiguration'
 
 // Different methods
 // 1) Creating a user
