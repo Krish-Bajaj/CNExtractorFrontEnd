@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react'
 import { postReq } from '../services/api'
 
-import { auth } from '../services/firebaseConfig'
+import auth from '../services/firebaseConfig'
 
 import Table from '../components/Table'
 import Excel from '../components/Excel'
