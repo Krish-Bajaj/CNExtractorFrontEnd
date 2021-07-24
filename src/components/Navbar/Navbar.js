@@ -1,6 +1,6 @@
 import { useState } from 'react'
 
-import { signinUser, createUser, logoutUser } from '../../services/FirebaseFunctions'
+import { signinUser, createUser, logoutUser } from '../../services/firebaseFunctions'
 import Modal from '../Modal/Modal'
 
 import './Navbar.css'

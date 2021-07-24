@@ -1,8 +1,8 @@
 import { Link } from 'react-router-dom'
 import { useState, useEffect } from 'react'
 
-import { getStatus } from '../services/FirebaseFunctions'
-import { auth } from '../services/FirebaseConfig'
+import { getStatus } from '../services/firebaseFunctions'
+import { auth } from '../services/firebaseConfig'
 import { postReq } from '../services/api'
 
 import Template from '../components/Template'
