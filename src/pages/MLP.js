@@ -23,7 +23,7 @@ const MLP = () => {
 	return (
 		<Template>
 			<Link to="/results">
-				<p>Click to Link account!!</p>
+				<p>C to Link account!!</p>
 			</Link>
 			<button style={{ paddingTop: '2rem' }} onClick={sendData}>
 				Send Data
